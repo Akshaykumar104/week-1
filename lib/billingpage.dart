@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:practice/TotalPrice.dart';
 
 class BillingPage extends StatefulWidget {
   final List<int> vegCost;
@@ -11,7 +12,7 @@ class BillingPage extends StatefulWidget {
     required this.vegCost,
     required this.vegCheckList,
     required this.fruitsCost,
-    required this.fruitsCheckList
+    required this.fruitsCheckList,
   });
 
   @override
@@ -21,6 +22,10 @@ class BillingPage extends StatefulWidget {
 class _BillingPageState extends State<BillingPage> {
   @override
   Widget build(BuildContext context) {
+    // Combine the vegetable and fruit lists
+    final List<String> combinedCheckList = [...widget.vegCheckList, ...widget.fruitsCheckList];
+    final List<int> combinedCostList = [...widget.vegCost, ...widget.fruitsCost];
+
     return Scaffold(
       body: Column(
         children: [
@@ -36,36 +41,38 @@ class _BillingPageState extends State<BillingPage> {
             ),
           ),
           const Divider(),
-          Expanded(
+          Container(
+            height: 60.0 * combinedCheckList.length,
             child: ListView.builder(
-              itemCount: widget.vegCheckList.length,
+              itemCount: combinedCheckList.length,
               itemBuilder: (context, index) {
                 return ListTile(
                   title: Row(
                     children: [
-                      Text("${widget.vegCheckList[index]}"),
+                      Text("${combinedCheckList[index]}"),
                       const Spacer(),
-                      Text("\$${widget.vegCost[index]}"),
+                      Text("\$${combinedCostList[index]}"),
                     ],
                   ),
                 );
               },
             ),
           ),
-          Expanded(
-            child: ListView.builder(
-              itemCount: widget.fruitsCheckList.length,
-              itemBuilder: (context, index) {
-                return ListTile(
-                  title: Row(
-                    children: [
-                      Text("${widget.fruitsCheckList[index]}"),
-                      const Spacer(),
-                      Text("\$${widget.fruitsCost[index]}"),
-                    ],
-                  ),
-                );
-              },
+          const Divider(),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16.0),
+            child: Row(
+              children: [
+                Text(
+                  "Total",
+                  style: TextStyle(fontSize: 16),
+                ),
+                Spacer(),
+                Text(
+                  "\$ ${Totalprice().totalBill(combinedCostList)}",
+                  style: TextStyle(fontSize: 16),
+                ),
+              ],
             ),
           ),
         ],

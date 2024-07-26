@@ -82,7 +82,8 @@ class _FruitsState extends State<Fruits> {
                     selectedFruitCost.add(cost[i]);
                   }
                 }
-                Navigator.push(context, MaterialPageRoute(builder: (context) =>  Billingpage(vegCost: widget.vegCost, vegCheckList: widget.vegCheckList, fruitsCost: selectedFruitCost, fruitsCheckList: selectedFruit,),),);
+                Navigator.push(context, MaterialPageRoute(builder: (context) =>  BillingPage(vegCost: widget.vegCost, vegCheckList: widget.vegCheckList, fruitsCost: selectedFruitCost, fruitsCheckList: selectedFruit,)));
+
               },
               child: const Text("              N  E  X  T              "),
             )
