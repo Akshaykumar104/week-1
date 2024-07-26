@@ -1,16 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:practice/homepage.dart';
 
-class  extends StatefulWidget {
-  const ({super.key});
-
-  @override
-  State<> createState() => _State();
+void main() {
+  runApp(const MyApp());
 }
 
-class _State extends State<> {
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return  const MaterialApp(
+        debugShowCheckedModeBanner: false,
+        home: Homepage()
+    );
   }
 }
+
 
