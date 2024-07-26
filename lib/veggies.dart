@@ -18,11 +18,11 @@ class _VeggiesState extends State<Veggies> {
 
   // List of vegetables
   static const List<String> veggies = [
-    'A',
-    'B',
-    'C',
-    'D',
-    'E',
+    'potato',
+    'tomato',
+    'carrot',
+    'garlic',
+    'cauliflower',
   ];
   static const List<int> cost= [
    50,123,45,34,90

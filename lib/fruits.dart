@@ -13,21 +13,21 @@ class Fruits extends StatefulWidget {
 }
 // List of vegetables
  const List<String> fruites = [
-  'A',
-  'B',
-  'C',
-  'D',
-  'E',
+  'apple',
+  'mango',
+  'pomegranate',
+  'litchi',
+  'peach',
 ];
 
 class _FruitsState extends State<Fruits> {
   List<bool> isCheckedListfruits = List.generate(fruites.length, (index) => false);
   static const List<String> fruites = [
-    'A',
-    'B',
-    'C',
-    'D',
-    'E',
+    'apple',
+    'mango',
+    'pomegranate',
+    'litchi',
+    'peach',
   ];
   static const List<int> cost= [
     10,12,3,4,4
